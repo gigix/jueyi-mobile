@@ -1,4 +1,4 @@
-name: Flutter Build
+name: Continuous Integration
 
 on:
   push:
