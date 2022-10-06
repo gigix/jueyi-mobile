@@ -1,31 +1,21 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:jueyi_mobile/main.dart';
 
 void main() {
-  // TODO: change test along with widget
-  // testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-  //   // Build our app and trigger a frame.
-  //   await tester.pumpWidget(const JueyiApp());
-  //
-  //   // Verify that our counter starts at 0.
-  //   expect(find.text('0'), findsOneWidget);
-  //   expect(find.text('1'), findsNothing);
-  //
-  //   // Tap the '+' icon and trigger a frame.
-  //   await tester.tap(find.byIcon(Icons.add));
-  //   await tester.pump();
-  //
-  //   // Verify that our counter has incremented.
-  //   expect(find.text('0'), findsNothing);
-  //   expect(find.text('1'), findsOneWidget);
-  // });
+  final TestWidgetsFlutterBinding binding = TestWidgetsFlutterBinding.ensureInitialized();
+
+  testWidgets('Should smoke', (WidgetTester tester) async {
+    await binding.setSurfaceSize(const Size(640, 640));
+
+    var question = 'A test question';
+    await tester.pumpWidget(const JueyiApp());
+    await tester.enterText(find.byType(TextFormField), question);
+    await tester.tap(find.byType(ElevatedButton));
+    await tester.pump();
+
+    expect(find.textContaining('为您卜算：$question'), findsOneWidget);
+    expect(find.textContaining('已为您卜得一卦'), findsOneWidget);
+  });
 }
