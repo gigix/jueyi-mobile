@@ -41,7 +41,8 @@ jobs:
       - name: Build App Bundle
         run: flutter build appbundle
 
-      - uses: actions/upload-artifact@v3
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
         with:
           name: Upload Artifacts
           path: build/app/outputs
