@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -41,18 +41,7 @@ jobs:
       - name: Build App Bundle
         run: flutter build appbundle
 
-  package-macos:
-    needs: build
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2
+      - uses: actions/upload-artifact@v3
         with:
-          channel: 'stable'
-          architecture: x64
-
-      - name: Config MacOS Desktop App
-        run: flutter config --enable-macos-desktop
-
-      - name: Build MacOS Desktop App
-        run: flutter build macos
+          name: Upload Artifacts
+          path: build/app/outputs
