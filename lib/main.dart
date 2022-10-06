@@ -66,7 +66,8 @@ class _JueyiPageState extends State<JueyiPage> {
           ),
           Padding(
             padding: standardPadding,
-            child: Text(resultText),
+            child:
+                Text(resultText, style: const TextStyle(fontFamily: 'DejaVuSans')),
           )
         ],
       ),

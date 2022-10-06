@@ -1,28 +1,36 @@
 import 'dart:math';
 
 import 'package:jueyi_mobile/coin.dart';
+import 'package:jueyi_mobile/gua.dart';
 import 'package:jueyi_mobile/yao.dart';
 
 class Divination {
   final String question;
   late final Random random;
-  final List<Yao> yaos = [];
+  final List<Yao> sixYao = [];
 
   Divination(this.question) {
-    int seed =
-        question.hashCode * 7 + DateTime.now().millisecondsSinceEpoch * 11;
+    var tianshi = DateTime.now().millisecondsSinceEpoch * 19;
+    var dili = hashCode * 13;
+    var renhe = question.hashCode * 7;
+    int seed = tianshi + dili + renhe;
     random = Random(seed);
     for (int i = 0; i < 6; i++) {
-      yaos.add(begAYao());
+      sixYao.add(begAYao());
     }
   }
 
   @override
   String toString() {
     var result = '为您卜算：$question\n';
-    for (var yao in yaos) {
+    for (var yao in sixYao) {
       result += '\n$yao\n';
     }
+
+    var gua = Gua.from(sixYao);
+    result += '\n已为您卜得一卦如下：\n';
+    result += '$gua\n';
+
     return result;
   }
 
