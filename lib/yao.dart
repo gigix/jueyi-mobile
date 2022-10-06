@@ -3,6 +3,8 @@ import 'package:jueyi_mobile/coin.dart';
 class Yao {
   final List<Coin> coins = [];
 
+  int position = 0;
+
   Yao(Coin coin1, Coin coin2, Coin coin3) {
     coins.addAll([coin1, coin2, coin3]);
   }
@@ -19,12 +21,18 @@ class Yao {
   String toString() {
     var result = '抛出三枚铜板：';
     for (var i = 1; i <= coins.length; i++) {
-      var coinToString = coins[i-1].toString();
+      var coinToString = coins[i - 1].toString();
       result += '$coinToString ';
     }
     result += '\n本爻结果：';
     result += isChange() ? '老' : '少';
     result += isYang() ? "阳" : "阴";
     return result;
+  }
+
+  Yao reverse() {
+    return isYang()
+        ? Yao(Coin.YIN, Coin.YANG, Coin.YANG)
+        : Yao(Coin.YANG, Coin.YIN, Coin.YIN);
   }
 }
