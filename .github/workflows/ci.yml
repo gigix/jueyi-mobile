@@ -44,5 +44,5 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: Upload Artifacts
+          name: App Packages
           path: build/app/outputs
