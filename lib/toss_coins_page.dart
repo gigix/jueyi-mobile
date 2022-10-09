@@ -21,7 +21,8 @@ class _TossCoinPageState extends State<TossCoinsPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('正在为您卜算……')),
       body: Center(
-        child: Text(Divination(question).toString()),
+        child: Text(Divination(question).toString(),
+            style: const TextStyle(fontFamily: 'DejaVuSans', fontSize: 16)),
       ),
     );
   }

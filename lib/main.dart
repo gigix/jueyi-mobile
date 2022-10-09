@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jueyi_mobile/toss_coins_page.dart';
 
-import 'divination.dart';
-
 void main() {
   runApp(const JueyiApp());
 }
@@ -46,7 +44,8 @@ class _JueyiPageState extends State<JueyiPage> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Padding(
             padding: standardPadding,
@@ -56,26 +55,30 @@ class _JueyiPageState extends State<JueyiPage> {
                 hintText: '请问您要卜算之事是……',
                 border: OutlineInputBorder(),
               ),
+              style: const TextStyle(fontSize: 28),
             ),
           ),
           Padding(
             padding: standardPadding,
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size.fromHeight(80),
+              ),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => TossCoinsPage(question: questionController.text)));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            TossCoinsPage(question: questionController.text)));
               },
-              child: const Text('开始卜算'),
+              child: const Text(
+                '开始卜算',
+                style: TextStyle(fontSize: 32),
+              ),
             ),
           ),
-          Padding(
-            padding: standardPadding,
-            child:
-            Text(resultText, style: const TextStyle(fontFamily: 'DejaVuSans')),
-          )
         ],
       ),
     );
   }
-
 }
