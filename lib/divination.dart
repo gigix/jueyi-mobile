@@ -23,11 +23,12 @@ class Divination {
   @override
   String toString() {
     var result = '$question\n';
+
+    var gua = Gua.from(sixYao);
     for (var yao in sixYao) {
       result += '\n$yao\n';
     }
 
-    var gua = Gua.from(sixYao);
     result += '\n已为您卜得一卦如下：\n';
     result += '$gua\n';
 

@@ -19,12 +19,12 @@ class Yao {
 
   @override
   String toString() {
-    var result = '抛出三枚铜板：';
+    var result = '抛出三枚铜板求卜第$position爻：';
     for (var i = 1; i <= coins.length; i++) {
       var coinToString = coins[i - 1].toString();
       result += '$coinToString ';
     }
-    result += '\n本爻结果：';
+    result += ' → ';
     result += isChange() ? '老' : '少';
     result += isYang() ? "阳" : "阴";
     return result;

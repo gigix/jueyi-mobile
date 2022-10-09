@@ -22,7 +22,9 @@ class Gua {
   static Gua from(List<Yao> sixYao) {
     var gua = ALL_64_GUA.firstWhere((g) => g._matches(sixYao));
     gua.sixYao = sixYao;
-    gua.sixYao.forEach((y) => y.position = gua.sixYao.indexOf(y) + 1);
+    for (var y in gua.sixYao) {
+      y.position = gua.sixYao.indexOf(y) + 1;
+    }
     return gua;
   }
 
