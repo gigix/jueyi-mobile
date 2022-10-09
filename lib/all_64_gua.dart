@@ -1,4 +1,4 @@
-String ALL_64_GUA_AS_JSON = """
+const String ALL_64_GUA_AS_JSON = """
 [
   {
     "position": "01",
