@@ -52,6 +52,12 @@ class _JueyiPageState extends State<JueyiPage> {
             padding: standardPadding,
             child: TextFormField(
               controller: questionController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return '请输入您要卜算之事';
+                }
+                return null;
+              },
               decoration: const InputDecoration(
                 hintText: '请问您要卜算之事是……',
                 border: OutlineInputBorder(),
@@ -66,6 +72,10 @@ class _JueyiPageState extends State<JueyiPage> {
                 minimumSize: const Size.fromHeight(80),
               ),
               onPressed: () {
+                var currentState = _formKey.currentState;
+                if(!currentState!.validate()) {
+                  return;
+                }
                 Navigator.push(
                     context,
                     MaterialPageRoute(
