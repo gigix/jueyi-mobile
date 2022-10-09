@@ -36,7 +36,11 @@ class _TossCoinPageState extends State<TossCoinsPage> {
             ),
             Padding(
               padding: standardPadding,
-              child: Text(divination.guaToString(), style: standardTextStyle(16)),
+              child: Text(divination.guaTitleAsText(), style: standardTextStyle(64)),
+            ),
+            Padding(
+              padding: standardPadding,
+              child: Text(divination.guaDeduciblesAsText(), style: standardTextStyle(16)),
             ),
           ],
         ),

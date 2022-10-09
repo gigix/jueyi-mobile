@@ -17,7 +17,11 @@ class Divination {
     return _sixYao.toString();
   }
 
-  String guaToString() {
-    return Gua.from(_sixYao).toString();
+  String guaDeduciblesAsText() {
+    return Gua.from(_sixYao).deduciblesText();
+  }
+
+  String guaTitleAsText() {
+    return Gua.from(_sixYao).titleText();
   }
 }

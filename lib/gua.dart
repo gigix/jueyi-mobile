@@ -40,13 +40,6 @@ class Gua {
     return sixYao.matches(lines);
   }
 
-  @override
-  String toString() {
-    var deducibleForGua = deducibles[0];
-    var deducible = effectiveDeducible();
-    return '$position. $name $symbol\n卦辞：$deducibleForGua\n断辞：$deducible';
-  }
-
   String effectiveDeducible() {
     if (effectiveYaoPosition() == 7 && position > 2) {
       Gua changeGua = _changeGua();
@@ -91,5 +84,15 @@ class Gua {
 
   Gua _changeGua() {
     return from(_sixYao.changeResult());
+  }
+
+  String titleText() {
+    return '$position. $name $symbol';
+  }
+
+  String deduciblesText() {
+    var deducibleForGua = deducibles[0];
+    var deducible = effectiveDeducible();
+    return '卦辞：$deducibleForGua\n断辞：$deducible';
   }
 }
