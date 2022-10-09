@@ -18,6 +18,6 @@ void main() {
 
     // TODO: how to assert text of AppBar?
     // expect(find.textContaining('为您卜算：$question'), findsOneWidget);
-    expect(find.textContaining('已为您卜得一卦'), findsOneWidget);
+    expect(find.textContaining('抛出三枚铜板'), findsOneWidget);
   });
 }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jueyi_mobile/toss_coins_page.dart';
 
+import 'design.dart';
+
 void main() {
   runApp(const JueyiApp());
 }
@@ -40,7 +42,6 @@ class _JueyiPageState extends State<JueyiPage> {
 
   @override
   Widget build(BuildContext context) {
-    const standardPadding = EdgeInsets.symmetric(vertical: 16, horizontal: 8);
     return Form(
       key: _formKey,
       child: Column(

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:jueyi_mobile/six_yao.dart';
 import 'package:jueyi_mobile/yao.dart';
 import 'package:jueyi_mobile/all_64_gua.dart';
 
@@ -17,14 +18,11 @@ class Gua {
   late final String symbol;
   late final String lines;
   late final List<String> deducibles;
-  late List<Yao> sixYao;
+  late SixYao _sixYao;
 
-  static Gua from(List<Yao> sixYao) {
+  static Gua from(SixYao sixYao) {
     var gua = ALL_64_GUA.firstWhere((g) => g._matches(sixYao));
-    gua.sixYao = sixYao;
-    for (var y in gua.sixYao) {
-      y.position = gua.sixYao.indexOf(y) + 1;
-    }
+    gua._sixYao = sixYao;
     return gua;
   }
 
@@ -38,8 +36,8 @@ class Gua {
     deducibles = deduciblesList.map((d) => d.toString()).toList();
   }
 
-  bool _matches(List<Yao> sixYao) {
-    return lines == sixYao.map((y) => y.isYang() ? '1' : '0').join();
+  bool _matches(SixYao sixYao) {
+    return sixYao.matches(lines);
   }
 
   @override
@@ -58,11 +56,11 @@ class Gua {
   }
 
   List<Yao> _changes() {
-    return sixYao.where((y) => y.isChange()).toList(growable: false);
+    return _sixYao.changes();
   }
 
   List<Yao> _stables() {
-    return sixYao.where((y) => !(y.isChange())).toList(growable: false);
+    return _sixYao.stables();
   }
 
   int effectiveYaoPosition() {
@@ -92,6 +90,6 @@ class Gua {
   }
 
   Gua _changeGua() {
-    return from(sixYao.map((y) => y.reverse()).toList(growable: false));
+    return from(_sixYao.changeResult());
   }
 }

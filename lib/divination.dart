@@ -1,45 +1,23 @@
-import 'dart:math';
 
-import 'package:jueyi_mobile/coin.dart';
 import 'package:jueyi_mobile/gua.dart';
-import 'package:jueyi_mobile/yao.dart';
+import 'package:jueyi_mobile/six_yao.dart';
 
 class Divination {
-  final String question;
-  late final Random random;
-  final List<Yao> sixYao = [];
+  final String _question;
+  late final SixYao _sixYao;
 
-  Divination(this.question) {
+  Divination(this._question) {
     var tianshi = DateTime.now().millisecondsSinceEpoch * 19;
     var dili = hashCode * 13;
-    var renhe = question.hashCode * 7;
-    int seed = tianshi + dili + renhe;
-    random = Random(seed);
-    for (int i = 0; i < 6; i++) {
-      sixYao.add(begAYao());
-    }
+    var renhe = _question.hashCode * 7;
+    _sixYao = SixYao.generate(tianshi + dili + renhe);
   }
 
-  @override
-  String toString() {
-    var result = '$question\n';
-
-    var gua = Gua.from(sixYao);
-    for (var yao in sixYao) {
-      result += '\n$yao\n';
-    }
-
-    result += '\n已为您卜得一卦如下：\n';
-    result += '$gua\n';
-
-    return result;
+  String sixYaoToString() {
+    return _sixYao.toString();
   }
 
-  Yao begAYao() {
-    return Yao(_tossACoin(), _tossACoin(), _tossACoin());
-  }
-
-  Coin _tossACoin() {
-    return random.nextBool() ? Coin.YANG : Coin.YIN;
+  String guaToString() {
+    return Gua.from(_sixYao).toString();
   }
 }

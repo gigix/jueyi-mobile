@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jueyi_mobile/design.dart';
 
 import 'package:jueyi_mobile/divination.dart';
 
@@ -18,13 +19,25 @@ class _TossCoinPageState extends State<TossCoinsPage> {
 
   @override
   Widget build(BuildContext context) {
+    var divination = Divination(question);
+
     return Scaffold(
       appBar: AppBar(title: const Text('正在为您卜算……')),
       body: Center(
         child: Column(
           children: <Widget>[
-            Text(Divination(question).toString(),
-                style: const TextStyle(fontFamily: 'DejaVuSans', fontSize: 16)),
+            Padding(
+              padding: standardPadding,
+              child: Text(question, style: standardTextStyle(24)),
+            ),
+            Padding(
+              padding: standardPadding,
+              child: Text(divination.sixYaoToString(), style: standardTextStyle(16)),
+            ),
+            Padding(
+              padding: standardPadding,
+              child: Text(divination.guaToString(), style: standardTextStyle(16)),
+            ),
           ],
         ),
       ),
