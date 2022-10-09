@@ -22,7 +22,7 @@ class Divination {
 
   @override
   String toString() {
-    var result = '为您卜算：$question\n';
+    var result = '$question\n';
     for (var yao in sixYao) {
       result += '\n$yao\n';
     }

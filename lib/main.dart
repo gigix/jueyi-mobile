@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jueyi_mobile/toss_coins_page.dart';
 
 import 'divination.dart';
 
@@ -60,24 +61,21 @@ class _JueyiPageState extends State<JueyiPage> {
           Padding(
             padding: standardPadding,
             child: ElevatedButton(
-              onPressed: _begDivination,
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => TossCoinsPage(question: questionController.text)));
+              },
               child: const Text('开始卜算'),
             ),
           ),
           Padding(
             padding: standardPadding,
             child:
-                Text(resultText, style: const TextStyle(fontFamily: 'DejaVuSans')),
+            Text(resultText, style: const TextStyle(fontFamily: 'DejaVuSans')),
           )
         ],
       ),
     );
   }
 
-  void _begDivination() {
-    setState(() {
-      var divination = Divination(questionController.text);
-      resultText = divination.toString();
-    });
-  }
 }
