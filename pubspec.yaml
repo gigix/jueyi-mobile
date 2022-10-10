@@ -94,3 +94,7 @@ flutter:
       fonts:
         - asset: asset/fonts/DejaVuSans.ttf
           weight: 700
+    - family: JiaGW
+      fonts:
+        - asset: asset/fonts/chenti_JiaGW.ttf
+          weight: 700
