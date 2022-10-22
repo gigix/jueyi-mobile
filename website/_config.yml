@@ -1,5 +1,5 @@
 title: 易·决疑
-description: 现在下载，立刻决疑
-show_downloads: true
+description: 立即下载，立刻决疑
+show_downloads: false
 google_analytics:
 theme: jekyll-theme-architect
