@@ -42,6 +42,11 @@ class _TossCoinPageState extends State<TossCoinsPage> {
               padding: standardPadding,
               child: Text(divination.guaDeduciblesAsText(), style: standardTextStyle(16)),
             ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 50, 20, 5),
+              child: Image.asset('asset/images/link_to_website.png', width: 100,),
+            ),
+            const Text('扫码下载易·决疑APP')
           ],
         ),
       ),
