@@ -6,4 +6,4 @@ layout: default
 
 请下载安装包（目前只支持安卓手机）：
 
-* [Jueyi-release-v1.1.apk](https://github.com/gigix/jueyi-mobile/releases/download/v1.1/Jueyi-release-v1.1.apk)
+* [Jueyi-release-v1.2.apk](https://github.com/gigix/jueyi-mobile/releases/download/v1.2/Jueyi-release-v1.2.apk)
