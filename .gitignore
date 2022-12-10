@@ -45,3 +45,4 @@ app.*.map.json
 /android/app/release
 
 _site
+crawler/raw_text
