@@ -61,6 +61,9 @@ void main() {
 
   test('Should have description as text', () async {
     Gua qian = Gua.from(SixYao([SHAO_YANG, SHAO_YANG, SHAO_YANG, SHAO_YANG, SHAO_YANG, SHAO_YANG]));
-    await expectLater(qian.description(), completion(contains('乾，元亨利贞。')));
+    expectLater(qian.description(), completion(contains('乾，元亨利贞。')));
+
+    Gua guimei = Gua.from(SixYao([SHAO_YANG, SHAO_YANG, SHAO_YIN, LAO_YANG, SHAO_YIN, SHAO_YIN]));
+    expectLater(guimei.description(), completion(contains('归妹，征凶，无攸利。')));
   });
 }

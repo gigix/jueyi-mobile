@@ -24,4 +24,8 @@ class Divination {
   String guaTitleAsText() {
     return Gua.from(_sixYao).titleText();
   }
+
+  Future<String> guaDescription() {
+    return Gua.from(_sixYao).description();
+  }
 }
