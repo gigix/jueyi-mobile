@@ -46,8 +46,7 @@ class _TossCoinPageState extends State<TossCoinsPage> {
                   style: standardTextStyle(16)),
             ),
             Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 16, horizontal: 140),
+              padding: standardPadding,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size.fromHeight(80),
