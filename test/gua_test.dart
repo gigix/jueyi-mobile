@@ -6,6 +6,8 @@ import 'package:jueyi_mobile/six_yao.dart';
 import 'fixture.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   test('Should have 64 distinct Gua', () {
     expect(Gua.ALL_64_GUA.length, 64);
     expect(Gua.ALL_64_GUA.map((g) => g.lines).toSet().length, 64);
@@ -55,5 +57,10 @@ void main() {
     Gua pi = Gua.from(SixYao([LAO_YIN, LAO_YIN, LAO_YIN, LAO_YANG, LAO_YANG, LAO_YANG]));
     expect(pi.effectiveYaoPosition(), 7);
     expect(pi.effectiveDeducible(), '小往大来，吉亨。');
+  });
+
+  test('Should have description as text', () async {
+    Gua qian = Gua.from(SixYao([SHAO_YANG, SHAO_YANG, SHAO_YANG, SHAO_YANG, SHAO_YANG, SHAO_YANG]));
+    await expectLater(qian.description(), completion(contains('乾，元亨利贞。')));
   });
 }

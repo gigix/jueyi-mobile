@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/services.dart';
 import 'package:jueyi_mobile/six_yao.dart';
 import 'package:jueyi_mobile/yao.dart';
 import 'package:jueyi_mobile/all_64_gua.dart';
@@ -94,5 +95,9 @@ class Gua {
     var deducibleForGua = deducibles[0];
     var deducible = effectiveDeducible();
     return '卦辞：$deducibleForGua\n断辞：$deducible';
+  }
+
+  Future<String> description() async {
+    return rootBundle.loadString('asset/text/01.md');
   }
 }
